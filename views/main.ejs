@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/main.css">
+    </head>
+    <body>
+        <% if (error) { %>
+            <script>
+                alert('Такого пользователя нет');
+            </script>
+        <% } %>
+
+        <main>
+            <img src = "/Group.png">
+            <form id = 'loginForm' method="post" action="login" onsubmit="return validateForm()">
+                <input style="margin-bottom: 1vw;" name="username" type="text" placeholder="USERNAME" id="username">
+                <input style="margin-bottom: 2.1vw;" name="password" type="password" placeholder="PASSWORD" id="password">
+                <button type="submit">LOGIN</button>
+            </form>
+        </main>
+    </body>
+
+    <script>
+            function validateForm() {
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+
+                if (username === "") {
+                    alert("Пожалуйста, введите имя пользователя.");
+                    return false; 
+                }
+
+                if (password === "") {
+                    alert("Пожалуйста, введите пароль.");
+                    return false;
+                }
+
+                return true; 
+            }
+    </script>
+</html>
